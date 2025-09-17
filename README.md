@@ -1,75 +1,67 @@
-# Wordle-Tweet-Analysis_Python
-A comprehensive data analysis project exploring Wordle game results shared on Twitter. This project processes and analyzes over 1.1 million Wordle-related tweets to extract insights about player performance, game patterns, and social sharing behaviors.
+# 🟩 Wordle Tweets Analysis
 
-📊 Project Overview
-This project analyzes a dataset of 1,178,454 Wordle-related tweets to understand:
+This project explores how players around the world solved **Wordle** puzzles, based on thousands of tweets shared publicly.  
+The aim is to study **performance trends, solving efficiency, and puzzle difficulty** using Python and data analysis techniques.
 
-Daily tweet volume patterns
+---
 
-Player performance metrics (number of attempts to solve puzzles)
+## 📂 Dataset
+- Source: Kaggle Wordle tweets dataset  
+- Structure: Each row represents a tweet containing:
+  - `tweet_date`: When the tweet was posted  
+  - `wordle_id`: Puzzle number (e.g., Wordle 210)  
+  - `n_attempts`: Number of guesses used  
+  - `tweet_text`: Game grid (🟩 🟨 ⬛) showing guesses and outcomes  
 
-Game difficulty trends over time
+---
 
-The structure and meaning of Wordle tweet formats
+## 🔍 Key Analyses
 
-📁 Dataset
-The dataset (tweets.csv) contains 5 columns:
+### 1. Tweet Activity
+- **Question:** What days of the week see the most Wordle tweets?  
+- **Method:** Convert datetime to day names, count frequency, and plot.  
+- **Insight:** Peaks show when the community is most engaged.  
 
-wordle_id - Integer identifier for each Wordle puzzle
+### 2. Performance by Puzzle
+- **Question:** Does performance (attempts to solve) change over different Wordle IDs?  
+- **Method:** Group by `wordle_id` and `n_attempts`.  
+- **Visuals:** Heatmaps & bar charts showing attempts distribution.  
 
-tweet_id - Integer identifier for each tweet
+### 3. Correctness Percentage
+- **Question:** What percentage of guesses are correct (green tiles)?  
+- **Method:** Extract 🟩, 🟨, ⬛ from tweet text.  
+  - Calculate `% greens = greens / total_boxes * 100`  
+- **Visuals:**  
+  - Histogram of green percentages across all games  
+  - Top 10 easiest & hardest Wordles by average green %  
+- **Insight:** Some puzzles clearly stand out as more/less solvable.  
 
-tweet_date - DateTime of tweet (UTC)
+### 4. Efficiency of Solving
+- **Question:** How quickly do players improve across attempts?  
+- **Method:** Track greens gained per attempt (attempt 1 → attempt 2 → …).  
+- **Visuals:** Line plots showing average greens per attempt number.  
+- **Insight:** Players usually gain the most greens in early attempts, with diminishing returns later.  
 
-tweet_username - Twitter username
+---
 
-tweet_text - Full text content of the tweet
+## 📊 Tools & Techniques
+- **Pandas**: cleaning, grouping, feature extraction  
+- **Regex & string methods**: extracting emoji-based features from tweets  
+- **Matplotlib / Seaborn**: data visualization and storytelling  
+- **Jupyter Notebook**: iterative exploration and reporting  
 
-🔧 Technical Implementation
-Data Processing
-Parsed tweet text to extract puzzle number and attempt count
+---
 
-Converted tweet dates to proper datetime format
+## 🚀 Future Work
+- Sentiment analysis of tweet text (beyond the grid)  
+- Compare performance by player type (casual vs. frequent posters)  
+- Predict puzzle difficulty using machine learning  
+- Automate dashboards (Power BI / Tableau)  
 
-Cleaned and structured emoji data for analysis
+---
 
-Analysis Features
-Daily tweet volume tracking
+## 👩‍💻 Author
+**Sara Ibrahim**  
+_Data Analyst | Python | SQL | Data Visualization_  
 
-Performance distribution analysis (how many attempts players typically need)
-
-Time series analysis of game difficulty
-
-📈 Key Insights
-Most common number of attempts needed to solve puzzles
-
-Daily engagement patterns with Wordle tweets
-
-Changes in player performance over time
-📋 Dependencies
-Python 3.7+
-
-pandas
-
-numpy
-
-matplotlib
-
-Jupyter Notebook
-
-🤝 Contributing
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-🙏 Acknowledgments
-Dataset source: [https://www.kaggle.com/]
-
-Wordle game by Josh Wardle
-
-Twitter API for providing the tweet data
-
-📧 Contact
-For questions about this analysis, please open an issue in this repository.
-Saraomran433@gmail.com
+📬 Let’s connect! I’d love feedback and collaboration.  
